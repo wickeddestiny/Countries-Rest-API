@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 
 const url = 'https://restcountries.eu/rest/v2/all';
 
@@ -14,6 +15,11 @@ const Countries = () => {
         useEffect(()=>{
             fetchCountryData()
     },  []);
+
+    const removeCountry = (numericCode) => {
+        const newCountry = countries.filter((country) => country.numericCode !== numericCode)
+        setCountries(newCountry)
+    }
     return (
         <>
             <section className="grid">
@@ -42,7 +48,16 @@ const Countries = () => {
                 <h4>
                     Capital: <span>{capital}</span>
                     </h4>
+                    <div className="buttons">
+                    <Link className="btn" to={`/countries/${name}`}>Learn More</Link>
+
+                    <button className="btn" 
+                    onClick={()=> removeCountry(numericCode)}>
+                        Remove Country</button>
                 </div>
+                </div>
+               
+                
             </div>
         </article>
             )
