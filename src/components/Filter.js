@@ -7,7 +7,7 @@ const Filter = () => {
                 <input type="search"
                        name="search" 
                        id="search"
-                 placeholder="Search for a country"/>
+                       placeholder="Search for a country"/>
             </form>
 
 

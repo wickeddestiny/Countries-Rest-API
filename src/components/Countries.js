@@ -10,7 +10,6 @@ const Countries = () => {
             const response = await fetch(url)
             const countries = await response.json()
             setCountries(countries)
-            console.log(countries)
         }
         useEffect(()=>{
             fetchCountryData()
@@ -22,7 +21,7 @@ const Countries = () => {
     }
     return (
         <>
-            <section className="grid">
+            <section className="countries">
             {countries.map((country) => {
         const { numericCode 
                 ,name
@@ -33,9 +32,10 @@ const Countries = () => {
 
         return ( 
         <article key={numericCode}>
-            <div>
+            <div  className="flag">
                 <img src={flag} alt={name} />
-                <div className="details">
+            </div>
+            <div className="details">
                 <h3>
                     {name}
                 </h3>
@@ -55,10 +55,9 @@ const Countries = () => {
                     onClick={()=> removeCountry(numericCode)}>
                         Remove Country</button>
                 </div>
-                </div>
-               
-                
             </div>
+               
+            
         </article>
             )
     })}

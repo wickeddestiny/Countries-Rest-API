@@ -14,8 +14,7 @@ const App = () => {
         <Filter />
         <Countries />
       </Route>
-      <Route path="/countries/:name" children=
-        {<Country />}></Route>
+      <Route path="/countries/:name" children={<Country />}></Route>
     </Router>
   )
 }

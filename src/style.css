@@ -9,6 +9,10 @@ body {
   background-color: #202d36;
   color: #fff;
 }
+body.light-theme {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
+}
 img {
   max-width: 100%;
 }
@@ -18,6 +22,10 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+}
+header.light-theme {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
 }
 /* FILTER */
 .filter {
@@ -44,6 +52,10 @@ img {
 .filter .form-control input::placeholder {
   color: #fff;
 }
+.form input.light-theme,
+.form select.light-theme {
+  color: hsl(0, 0%, 52%);
+}
 .filter .region-filter {
   width: 100%;
 }
@@ -58,34 +70,39 @@ img {
 }
 
 /* GRID */
-.grid {
+.countries {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
   padding: 20px;
 }
-.grid article {
+.countries article {
   box-shadow: 0 10px 10px rgba(9, 17, 22, 0.5);
+  transition: background-color 0.4s;
 }
-.grid article img {
+.countries article img {
   border-radius: 5px 5px 0 0;
-  /*height: 250px;*/
+  height: 250px;
   width: 100%;
-  object-fit: fill;
 }
-.grid .details {
+.countries .details {
   background-color: #2b3743;
   padding: 40px 20px;
   margin-top: -20px;
   border-radius: 0 0 5px 5px;
+  transition: background-color 0.4s;
 }
-.grid .details h3 {
+.countries .details.light-theme {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
+}
+.countries .details h3 {
   padding-bottom: 10px;
 }
-.grid .details h4 {
+.countries .details h4 {
   padding-bottom: 10px;
 }
-.grid .details h4 span {
+.countries .details h4 span {
   font-weight: 300;
 }
 .buttons {
@@ -113,10 +130,10 @@ img {
 }
 
 @media (min-width: 640px) {
-  .grid {
+  .countries {
     grid-template-columns: repeat(2, 1fr);
   }
-  .grid article img {
+  .countries article img {
     width: 250;
   }
 }
@@ -135,17 +152,17 @@ img {
     width: auto;
     margin: 0;
   }
-  .grid {
+  .countries {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 992px) {
   .header,
   .filter,
-  .grid {
+  .countries {
     padding: 20px 100px;
   }
-  .grid {
+  .countries {
     grid-template-columns: repeat(4, 1fr);
     gap: 60px;
   }
